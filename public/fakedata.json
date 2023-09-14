@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "title": "C Programming Basic Concepts",
+      "description": "Learn C fundamentals, including pointers and memory management.",
+      "price": 49.99,
+      "creditHour": 3,
+      "coverImage": "https://i.ibb.co/WnPpzr1/Rectangle-2-2.png"
+    },
+    {
+      "id": 2,
+      "title": "Algorithms and Data Structures",
+      "description": "Explore algorithms and data structures for efficient problem-solving.",
+      "price": 59.99,
+      "creditHour": 4,
+      "coverImage": "https://i.ibb.co/zrkm2qv/Rectangle-2-3.png"
+    },
+    {
+      "id": 3,
+      "title": "C++ Programming Masterclass",
+      "description": "Master C++ with OOP, templates, and advanced features.",
+      "price": 49.99,
+      "creditHour": 4,
+      "coverImage": "https://i.ibb.co/PQgJjbx/Rectangle-2-4.png"
+    },
+    {
+      "id": 4,
+      "title": "Data Structures and Algorithms in C++",
+      "description": "Learn advanced data structures and algorithms in C++.",
+      "price": 69.99,
+      "creditHour": 4,
+      "coverImage": "https://i.ibb.co/x2CZcRZ/Rectangle-3.png"
+    },
+    {
+      "id": 5,
+      "title": "Object-Oriented Programming with Python",
+      "description": "Learn OOP principles and best practices using Python.",
+      "price": 39.99,
+      "creditHour": 3,
+      "coverImage": "https://i.ibb.co/6B322vk/Rectangle-2.png"
+    },
+    {
+      "id": 6,
+      "title": "Software Engineering Fundamentals",
+      "description": "Gain a solid foundation in software engineering concepts and methodologies.",
+      "price": 59.99,
+      "creditHour": 4,
+      "coverImage": "https://i.ibb.co/HP0Yv92/Rectangle-2-5.png"
+    },
+    {
+      "id": 7,
+      "title": "AWS Cloud Computing Essentials",
+      "description": "Explore AWS cloud services and solutions for scalable applications.",
+      "price": 79.99,
+      "creditHour": 5,
+      "coverImage": "https://i.ibb.co/gdjQ6c5/Rectangle-3-1.png"
+    },
+    {
+      "id": 8,
+      "title": "Database Management with MySQL",
+      "description": "Learn SQL and manage databases using MySQL for web applications.",
+      "price": 49.99,
+      "creditHour": 3,
+      "coverImage": "https://i.ibb.co/NrGQ3Qx/Rectangle-2-1.png"
+    },
+    {
+      "id": 9,
+      "title": "Problem Solving and Algorithms",
+      "description": "Enhance your problem-solving skills using algorithms and data structures.",
+      "price": 39.99,
+      "creditHour": 3,
+      "coverImage": "https://i.ibb.co/1Rt7JxG/Rectangle-2-6.png"
+    }
+  ]
+  
