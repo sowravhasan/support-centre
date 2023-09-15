@@ -60,7 +60,6 @@ const Course = () => {
                         {selectCourse.map((course) => (
                             <div key={course.id} className='pb-3'>
                                    <li>{course.title}</li>
-                                   console.log(course);
                             </div>
                         ))}
                         
