@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Course = () => {
     const [allCourses, setAllcourses] = useState([]);
     const [selectCourse, setSelectCourse] = useState([]);
-    const [remaining, setRemaining] = useState ([0]);
+    const [remaining, setRemaining] = useState ([20]);
     const [totalCredit, setTotalCredit] = useState ([0]);
     const [totalPrice, setTotalPrice] = useState ([0]);
     useEffect(() => {
@@ -43,16 +43,16 @@ const Course = () => {
     
     return (
         <>
-           <div className='w-[1400px] mx-auto flex'>
-             <div className="w-3/4 max-w-full">
-                <div className="all-courses grid grid-cols-3 gap-4">
+           <div className='w-[1400px] mx-auto lg:flex'>
+             <div className="w-3/4 mx-auto max-w-full">
+                <div className="all-courses grid lg:grid-cols-3 md:grid-cols-2 mx-auto gap-4">
                     {
                     allCourses.map(course => (
                         <div key={course.id} className="courses-content">
                             <div className=''>
                             <div className="rounded-lg overflow-hidden shadow-lg bg-white p-4">
                                 <div className="mb-[20px] relative">
-                                <img src={course.coverImage} alt="" className="max-w-full w-full h-[200px]"/>
+                                <img src={course.coverImage} alt="" className="max-w-full w-full xl:h-[200px]"/>
                                 </div>
                                 <h2 className='text-xl font-semibold'>{course.title}</h2>
                                 <p className='text-[14px] mt-2 mb-4'>{course.description}</p>
@@ -69,7 +69,7 @@ const Course = () => {
                     ))}
                 </div>
              </div> 
-             <div className="w-1/4">
+             <div className="lg:w-1/4 md:w-3/4 mx-auto mt-4 xl:mt-0 lg:mt-0">
                 <div className="ml-3">
                     <div className='product-card bg-white p-4 rounded-lg shadow-md'>
                     <h3 className='text-xl font-semibold pb-3 text-blue-600'>Credit Hour Remaining : <span>{remaining} </span>hr</h3>
@@ -77,14 +77,13 @@ const Course = () => {
                     <div>
                         {selectCourse.map((course) => (
                             <div key={course.id} className='pb-3'>
-                                   <li>{course.title}</li>
-                            </div>
-                        ))}
-                        
+                            {course.id}. {course.title}
+                          </div>
+                        ))}   
                     </div>
                     <ToastContainer />
                     <h3 className="mb-3 border-y-2 pt-3 text-md pb-3">Total Credit Hour : {totalCredit}</h3>
-                    <h3 className='text-md pb-3 '>Total Price : {totalPrice} </h3>
+                    <h3 className='text-md pb-3 '>Total Price : {totalPrice} USD</h3>
                     </div>
                 </div>
              </div>
