@@ -7,6 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Course = () => {
     const [allCourses, setAllcourses] = useState([]);
     const [selectCourse, setSelectCourse] = useState([]);
+    const [remaining, setRemaining] = useState ([0]);
+    const [totalCredit, setTotalCredit] = useState ([0]);
+    const [totalPrice, setTotalPrice] = useState ([0]);
     useEffect(() => {
         fetch("./fakedata.json")
         .then(res=>res.json())
@@ -14,14 +17,30 @@ const Course = () => {
     }, [])
     const handleSelectCourse = (course) => {
         const isExist = selectCourse.find((item) => item.id == course.id);
+        let count = course.creditHour;
+        let totalPrice = course.price;
         if (isExist){
             toast.error('This course is already added to the list');
         }
         else{
-            setSelectCourse([...selectCourse, course]);
+            selectCourse.forEach((item) => {
+                count += item.creditHour;
+                totalPrice += item.price;
+            });
+            const remaining = 20 - count;
+            if (remaining < 0){
+                return toast.error('You have reached the credit hour limit.');
+            } else{
+                setRemaining(remaining);
+                setTotalCredit(count);
+                setTotalPrice(totalPrice);
+                setSelectCourse([...selectCourse, course]);
+            }
+            
         }
-        
+         
     };
+    
     return (
         <>
            <div className='w-[1400px] mx-auto flex'>
@@ -44,7 +63,6 @@ const Course = () => {
                                    <p><span>Credit: {course.creditHour}hr</span></p> 
                                 </div>
                                 <button onClick={() => handleSelectCourse (course)} className='bg-blue-500 hover:bg-blue-700 text-white text-xl font-medium py-1 px-4 rounded w-full mt-5'>Select</button>
-                                <ToastContainer />
                             </div>
                             </div>
                         </div>
@@ -54,7 +72,7 @@ const Course = () => {
              <div className="w-1/4">
                 <div className="ml-3">
                     <div className='product-card bg-white p-4 rounded-lg shadow-md'>
-                    <h3 className='text-xl font-semibold pb-3 text-blue-600'>Credit Hour Remaining : <span>20</span>hr</h3>
+                    <h3 className='text-xl font-semibold pb-3 text-blue-600'>Credit Hour Remaining : <span>{remaining} </span>hr</h3>
                     <h3 className="mb-3 border-t-2 pt-3 text-xl font-semibold">Course Name</h3>
                     <div>
                         {selectCourse.map((course) => (
@@ -64,8 +82,9 @@ const Course = () => {
                         ))}
                         
                     </div>
-                    <h3 className="mb-3 border-y-2 pt-3 text-md pb-3">Total Credit Hour : </h3>
-                    <h3 className='text-md pb-3 '>Total Price : <span>00</span> USD</h3>
+                    <ToastContainer />
+                    <h3 className="mb-3 border-y-2 pt-3 text-md pb-3">Total Credit Hour : {totalCredit}</h3>
+                    <h3 className='text-md pb-3 '>Total Price : {totalPrice} </h3>
                     </div>
                 </div>
              </div>
